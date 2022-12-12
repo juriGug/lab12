@@ -24,7 +24,7 @@ namespace ExtensionMethods
         {
             get
             {
-                throw new System.NotImplementedException();
+                return re;
             }
         }
 
@@ -33,7 +33,7 @@ namespace ExtensionMethods
         {
             get
             {
-                throw new System.NotImplementedException();
+                return im;
             }
         }
 
@@ -42,7 +42,7 @@ namespace ExtensionMethods
         {
             get
             {
-                throw new System.NotImplementedException();
+                return Math.Sqrt(im*im + re*re);
             }
         }
 
@@ -51,7 +51,7 @@ namespace ExtensionMethods
         {
             get
             {
-                throw new System.NotImplementedException();
+                return Math.Atan2(im, re);
             }
         }
 
@@ -59,27 +59,27 @@ namespace ExtensionMethods
         public override string ToString()
         {
             // TODO improve
-            return base.ToString();
+            return re +" + i" + im; 
         }
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
         public bool Equals(IComplex other)
         {
-            throw new System.NotImplementedException();
+            return re == other.Real ? im == other.Imaginary ? true : false : false;
         }
 
         /// <inheritdoc cref="object.Equals(object?)"/>
         public override bool Equals(object obj)
         {
             // TODO improve
-            return base.Equals(obj);
+            return Equals((IComplex)obj);
         }
 
         /// <inheritdoc cref="object.GetHashCode"/>
         public override int GetHashCode()
         {
             // TODO improve
-            return base.GetHashCode();
+            return HashCode.Combine(re, im);
         }
     }
 }
